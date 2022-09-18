@@ -20,7 +20,7 @@ body {
     background: url(/img/space3.jpg);
     transition: all .7s;
     background-blend-mode: luminosity;
-    background-color: darkorange;
+    background-color: #ff8c00;
 }
 
 /* Footer */
@@ -37,14 +37,6 @@ footer {
     position: absolute;
     bottom: 0;
     cursor: default;
-}
-
-#toggler {
-    position: absolute;
-    top: 6%;
-    right: 12%;
-    width: 75px;
-    height: 40px;
 }
 
 .warning {

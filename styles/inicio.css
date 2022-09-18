@@ -40,10 +40,14 @@ footer {
     cursor: default;
 }
 
+/* CONTENEDOR PRINCIPAL */
 .contenedor-principal {
+    display: flex;
+    flex-direction: row;
     height: 100vh;
 }
 
+/* ASIDE MENU */
 #aside-menu {
     display: flex;
     flex-direction: column;
@@ -64,4 +68,74 @@ footer {
 #ronnie-logo {
     width: 90%;
     margin-top: 20px;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    background-color: #080500b4;
+}
+
+.menu-link {
+    color: #c9c9c9;
+    text-decoration: none;
+    padding: 15px 0;
+    width: 95%;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 5%;
+    font-size: 15px;
+    transition: all .2s;
+}
+
+.link-activo {
+    color: #c9c9c9;
+    text-decoration: none;
+    padding: 15px 0;
+    width: 95%;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 5%;
+    font-size: 15px;
+    transition: all .2s;
+    background-color: #a05800c5;
+}
+
+.menu-link:hover {
+    background-color: #080500da;
+}
+
+/* CONTENIDO DE INICIO */
+#contenido-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding-top: 3%;
+}
+
+#contenido-inicio h2 {
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #dddddd;
+    font-size: 35px;
+    width: 95%;
+    margin-bottom: 2%;
+    background-color: #080500d3;
+    box-shadow: 0 0 20px 10px #080500d3;
+}
+
+#contenido-inicio p {
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #dddddd;
+    font-size: 25px;
+    width: 95%;
+    background-color: #080500d3;
+}
+
+#contenido-inicio img {
+    width: 30%;
+    margin-bottom: 2%;
 }
