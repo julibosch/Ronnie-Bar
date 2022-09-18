@@ -4,8 +4,6 @@ const user_input = document.querySelector('#user-input');
 const pass_input = document.querySelector('#pass-input');
 const submit_btn = document.querySelector('#submit');
 
-const toggler = document.querySelector('#toggler');
-
 const body = document.querySelector('body');
 const contenedor_principal = document.querySelector('.contenedor-principal')
 
@@ -17,11 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function eventListeners() {
     formulario.addEventListener('submit', validateInputs);
-
-    toggler.addEventListener('click', animacion);
 }
 
-function animacion() {
+function redireccionar() {
     body.style.backgroundPosition = 'top';
     contenedor_principal.classList.add('desplazamiento');
     
@@ -41,7 +37,7 @@ function validateInputs(e) {
         imprimirAlerta('Todos los campos son obligatorios', 'warning')
         console.log({ user, pass })
     } else {
-        window.location.href = 'index.html'
+        redireccionar();
     }
 }
 
