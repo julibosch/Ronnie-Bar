@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link a CSS -->
+    <link rel="stylesheet" href="/styles/index.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+
+    <title>Ronnie Bar - Sistema de Administración y Gestión</title>
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <button id="toggler">Prueba</button>
+
+        <!-- Logo de ronnie -->
+        <div id="ronnie-banner">
+            <img class="banner-logo" src="/img/Ronnie-Logo.png" alt="Ronnie Bar Logo"> <!-- IMAGEN DEL LOGO DE RONNIE -->
+        </div>
+        <h2 id="titulo">Sistema de Administración y Gestión</h2>
+
+        <!-- Contenedor Imagen y Fomulario -->
+        <div id="contenedor-img-form">
+            <!-- Imagen astronauta -->
+            <img id="foto-astronauta-libro" src="/img/astronauta-libro.png" alt="Astronauta1">
+            <img id="foto-astronauta-acostado" src="/img/astronauta-acostado-fernet.png" alt="Astronauta2">
+
+            <!-- Formulario -->
+            <form id="formulario" action="">
+                
+                <legend>Iniciar Sesión</legend>
+                <!-- Input Usuario -->
+                <div class="div-input">
+                    <label for="user">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </label>
+                    <input id="user-input" type="text" placeholder="Usuario" autocomplete="off">
+                </div>
+    
+                <!-- Input Password -->
+                <div class="div-input">
+                    <label for="password">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </label>
+                    <input id="pass-input" type="password" placeholder="Contraseña" autocomplete="off">
+                </div>
+
+                <!-- Boton de submit -->
+                <input id="submit" type="submit" value="Entrar">
+            </form>
+        </div>
+
+    </div>
+    
+<footer>Derechos reservados 2022 &copy; Stark Two</footer>
+
+<script src="/js/index.js"></script>
+</body>
+
+</html>

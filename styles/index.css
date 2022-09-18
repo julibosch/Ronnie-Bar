@@ -1,0 +1,224 @@
+/* ESTILOS GENERALES */
+@font-face {
+    font-family: 'pixel';
+    src: url(/styles/fonts/m12.TTF);
+}
+
+@font-face {
+    font-family: 'pixel2';
+    src: url(/styles/fonts/PixelEmulator-xq08.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+}
+
+body {
+    background: url(/img/space3.jpg);
+    transition: all .7s;
+    background-blend-mode: luminosity;
+    background-color: darkorange;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 200;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #080500;
+    color: #f0f8ff;
+    position: absolute;
+    bottom: 0;
+    cursor: default;
+}
+
+#toggler {
+    position: absolute;
+    top: 6%;
+    right: 12%;
+    width: 75px;
+    height: 40px;
+}
+
+.warning {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 35px;
+    background-color: #ff0000c9;
+    color: #f0f8ff;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    border-radius: 15px;
+}
+
+.desplazamiento {
+    transform: translateX(-100%);
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 3%;
+    transition: all .7s;
+}
+
+#ronnie-banner {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.banner-logo {
+    width: 40%;
+    animation: ease-out infinite 1.5s neon-glow;
+}
+
+@keyframes neon-glow {
+    0% {
+        filter: drop-shadow(0 0 2px #ffa60094);
+    }
+    25% {
+        filter: drop-shadow(0 0 5px #fcd284af);
+    }
+    40% {
+        filter: drop-shadow(0 0 2px #ffac118f);
+    }
+    75% {
+        filter: drop-shadow(0 0 7px #ffbd2ee0);
+    }
+    100% {
+        filter: drop-shadow(0 0 0px #ffac1100);
+    }
+}
+
+#titulo {
+    font-size: 25px;
+    color: #f0f8ff;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    margin-bottom: 3%;
+    cursor: default;
+}
+
+/* Contenedor Imagen y Formulario */
+#contenedor-img-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /*backdrop-filter: blur(2px);*/
+}
+
+#foto-astronauta-libro {
+    position: absolute;
+    width: 40%;
+    left: 3%;
+    margin-top: -6%;
+    z-index: -1;
+}
+
+#foto-astronauta-acostado {
+    position: absolute;
+    width: 40%;
+    right: 7%;
+    bottom: 1%;
+    z-index: -1;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    min-height: 45vh;
+    background-color: #080500;
+    border: 3px solid #d68b00c9;
+    box-shadow: inset 0 0 15px #ffa6008f;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+#formulario legend {
+    color: #f0f8ff;
+    font-size: 20px;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 15px 0;
+    margin-bottom: 25px;
+    cursor: default;
+}
+
+.div-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding-left: 12px;
+    margin-bottom: 25px;
+    background-color: #d68b00;
+}
+
+.div-input input {
+    width: 90%;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 100;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.div-input input::placeholder {
+    color: #0f0b08d3;
+    font-size: 12px;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#submit {
+    width: 100px;
+    height: 40px;
+    background-color: #ffa600;
+    color: #080500;
+    font-size: 16px;
+    font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all .1s;
+    position: absolute;
+    bottom: 10%;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #ffd000;
+    box-shadow: 0 0 10px #ffd000;
+}
+
+.input-icon {
+    width: 25px;
+    padding-right: 9px;
+    padding-top: 3px;
+}
+
+.warn-icon {
+    width: 20px;
+    padding-right: 7px;
+}
+
