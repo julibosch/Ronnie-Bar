@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/styles/universal.css">
+    <link rel="stylesheet" href="/styles/bebidas.css">
+
+    <title>Ronnie Bar - Sistema de Administración y Gestión</title>
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <aside id="aside-menu">
+            <img id="ronnie-logo" src="/img/Ronnie-Logo.png" alt="">
+            <span></span>
+            <div id="menu">
+                <a class="menu-link" href="inicio.html">Inicio</a>
+                <a class="link-activo" href="bebidas.html">Bebidas</a>
+                <a class="menu-link" href="#">Proveedores</a>
+                <a class="menu-link" href="#">Stock</a>
+                <a class="menu-link" href="#">Ventas</a>
+            </div>
+
+            <button id="lista-precios">Generar lista de precios</button>
+        </aside>
+
+        <section id="contenido-bebidas">
+            <h1>Bebidas</h1>
+
+            <!-- Table container -->
+            <div id="table-container">
+                
+                <!-- Table Header -->
+                <div id="table-header">
+
+                    <!-- Search input -->
+                    <div id="search-div">
+                        <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
+                        </svg>                      
+                        <input type="search" name="search" id="search-input" placeholder="Buscar bebidas" autocomplete="off">
+                    </div>
+
+                    <!-- Add bebidas btn -->
+                    <button id="btn-agregar-item" type="button" data-toggle="modal" data-target="#modal-agregar-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd" />
+                        </svg>
+                        Agregar bebida
+                    </button>
+                </div>
+                
+                <table id="table" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="table-head">Bebida</th>
+                            <th class="table-head">Categoria</th>
+                            <th class="table-head">Precio</th>
+                            <th class="table-head">Proveedor</th>
+                            <th style="text-align: center;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td class="table-data">Patagonia 500ml</td>
+                            <td class="table-data">Cerveza</td>
+                            <td class="table-data precio">$ 600</td>
+                            <td class="table-data proovedor">Crow</td>
+                            <td class="table-data acciones">
+                                <button class="edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                                        <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                                    </svg>
+                                    Editar
+                                </button>
+                                <button class="delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr class="table-row clara">
+                            <td class="table-data">Santa Fe 500ml</td>
+                            <td class="table-data">Cerveza</td>
+                            <td class="table-data precio">$ 400</td>
+                            <td class="table-data proovedor">Crow</td>
+                            <td class="table-data acciones">
+                                <button class="edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                                        <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                                    </svg>
+                                    Editar
+                                </button>
+                                <button class="delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr class="table-row">
+                            <td class="table-data">Gin Tonic - Limon</td>
+                            <td class="table-data">Cocteles</td>
+                            <td class="table-data precio">$ 500</td>
+                            <td class="table-data proovedor">Distribuidora Sape</td>
+                            <td class="table-data acciones">
+                                <button class="edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                                        <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                                    </svg>
+                                    Editar
+                                </button>
+                                <button class="delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- MODAL -->
+    <!-- <div id="modal-agregar-item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <h5>Agregar bebida</h5>
+        <form id="form-agregar-item" action="">
+            <div class="div-input">
+                <label for="bebida">Bebida</label>
+                <input id="bebida" type="text" placeholder="Nombre de la bebida">
+            </div>
+
+            <div class="div-input">
+                <label for="categoria">Categoria</label>
+                <input id="categoria" type="text" placeholder="Nombre de la categoria">
+            </div>
+
+            <div class="div-input">
+                <label for="precio">Precio: $</label>
+                <input id="precio" type="number">
+            </div>
+
+            <div class="div-input">
+                <label for="proveedor">Proveedor</label>
+                <input id="proveedor" type="text" placeholder="Nombre del proveedor">
+            </div>
+
+            <div class="div-input div-acciones">
+                <input id="submit" type="submit" value="Agregar">
+                <button id="cancel">Cancelar</button>
+            </div>
+        </form>
+    </div> -->
+
+    <footer>Derechos reservados 2022 &copy; Stark Two</footer>
+
+    <!-- SCRIPTS -->
+    <script src="/js/bebidas.js"></script>
+</body>
+
+</html>
