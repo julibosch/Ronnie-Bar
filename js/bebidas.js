@@ -5,6 +5,7 @@ let clara = false;
 const agregar_item = document.querySelector('#btn-agregar-item');
 const tabla = document.querySelector('#table-body');
 const modal = document.querySelector('#modal-fondo');
+const modalTitulo = document.querySelector('#modal-agregar-item h5');
 const modalVentana = document.querySelector('#modal-agregar-item');
 const formulario = document.querySelector('#form-agregar-item');
 const cancelarBtn = document.querySelector('#cancel');
@@ -26,6 +27,7 @@ function eventListeners() {
 
 function mostrarModal() {
     /* Muestra el modal */
+    modalTitulo.textContent = 'Agregar bebida';
     modal.style.display = 'flex';
 
     /* Submitear formulario */
@@ -40,6 +42,8 @@ function mostrarModal() {
         const id = Date.now();
 
         const nuevaBebida = { nombre, categoria, precio, proveedor, id };
+
+        console.log(bebidas);
 
         crearBebidaNueva(nuevaBebida);
     }
@@ -57,36 +61,37 @@ function crearBebidaNueva(nuevaBebida) {
     bebidas.push(nuevaBebida);
 
     imprimirBebidas();
-    
+
     formulario.reset();
-    
+
     ocultarModal();
 }
 
 function limpiarHTML() {
-    while(tabla.firstChild) {
+    while (tabla.firstChild) {
         tabla.removeChild(tabla.firstChild)
     }
 }
 
 function ocultarModal() {
     modal.style.transform = "translateX(70%)";
-            modal.style.opacity = '0%';
-        setTimeout(() => {
-            modal.style.display = 'none';
-            modal.style.transform = "translateX(0%)";
-            modal.style.opacity = '100%';
-        }, 400);
+    modal.style.opacity = '0%';
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.style.transform = "translateX(0%)";
+        modal.style.opacity = '100%';
+    }, 400);
+    formulario.reset();
 }
 
 function imprimirBebidas() {
     /* Recorro el arreglo de bebidas para ir creando cada table row */
-    bebidas.forEach( bebida => {
-        const {nombre, categoria, precio, proveedor, id} = bebida;
+    bebidas.forEach(bebida => {
+        const { nombre, categoria, precio, proveedor, id } = bebida;
 
         const bebidaHTML = document.createElement('tr');
-        
-        if(clara === false) {
+
+        if (clara === false) {
             bebidaHTML.classList.add('table-row')
         } else {
             bebidaHTML.classList.add('table-row', 'clara')
@@ -122,11 +127,20 @@ function imprimirBebidas() {
         `
         tabla.appendChild(bebidaHTML);
 
-        if(clara === false) {
+        if (clara === false) {
             clara = true;
         } else {
             clara = false
         };
+
+        const editBtn = document.querySelector('.edit');
+        const deleteBtn = document.querySelector('.delete');
+
+        const bebidaEdit = { nombre, categoria, precio, proveedor, id };
+
+        editBtn.onclick = () => {
+            editarBebida(bebidaEdit);
+        }
     });
 
     checkearTabla();
@@ -138,4 +152,20 @@ function checkearTabla() {
     } else {
         alertaTablaVacia.style.display = 'none'
     }
+}
+
+function editarBebida(bebidaEdit) {
+    const {nombre, categoria, precio, proveedor, id} = bebidaEdit;
+
+    /* Muestra el modal */
+    modal.style.display = 'flex';
+    modalTitulo.textContent = 'Editar bebida';
+
+    /* Lleno los inputs con los datos de la bebida a editar */
+    document.querySelector('#bebida').value = nombre;
+    document.querySelector('#categoria').value = categoria;
+    document.querySelector('#precio').value = precio;
+    document.querySelector('#proveedor').value = proveedor;
+    
+
 }
