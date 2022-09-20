@@ -122,9 +122,8 @@ footer {
 
 #foto-astronauta-libro {
     position: absolute;
-    width: 40%;
-    left: 3%;
-    margin-top: -6%;
+    width: 20%;
+    left: 8%;
     z-index: -1;
 }
 

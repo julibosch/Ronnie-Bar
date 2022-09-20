@@ -1,13 +1,18 @@
 /* ESTILOS GENERALES */
 
 @font-face {
-    font-family: 'pixel';
-    src: url(/styles/fonts/m12.TTF);
+    font-family: 'pixel1';
+    src: url(/styles/fonts/ticketing/TICKETING/Ticketing.ttf);
 }
 
 @font-face {
     font-family: 'pixel2';
     src: url(/styles/fonts/PixelEmulator-xq08.ttf);
+}
+
+@font-face {
+    font-family: 'pixel3';
+    src: url(/styles/fonts/karma/karma\ future.otf);
 }
 
 * {
