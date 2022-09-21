@@ -22,7 +22,7 @@ function redireccionar() {
     contenedor_principal.classList.add('desplazamiento');
     
     setTimeout(() => {
-        window.location.href = 'inicio.html'
+        window.location.href = 'instrucciones.html'
     }, 1200);
 }
 
