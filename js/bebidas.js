@@ -1,6 +1,7 @@
 /* Variables */
 let bebidas = [];
 let clara = false;
+let editando = false;
 
 const agregar_item = document.querySelector('#btn-agregar-item');
 const tabla = document.querySelector('#table-body');
@@ -9,8 +10,7 @@ const modalTitulo = document.querySelector('#modal-agregar-item h5');
 const modalVentana = document.querySelector('#modal-agregar-item');
 const formulario = document.querySelector('#form-agregar-item');
 const cancelarBtn = document.querySelector('#cancel');
-
-const alertaTablaVacia = document.querySelector('#tabla-vacia')
+const alertaTablaVacia = document.querySelector('#tabla-vacia');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function eventListeners() {
     agregar_item.addEventListener('click', mostrarModal);
+
+    tabla.addEventListener('click', editarBebida);
 }
 
 function mostrarModal() {
@@ -32,20 +34,50 @@ function mostrarModal() {
 
     /* Submitear formulario */
     formulario.onsubmit = (e) => {
-        e.preventDefault();
+        if(editando == false) {
 
-        /* Crea un objeto a partir de los inputs.value */
-        const nombre = document.querySelector('#bebida').value;
-        const categoria = document.querySelector('#categoria').value;
-        const precio = Number(document.querySelector('#precio').value);
-        const proveedor = document.querySelector('#proveedor').value;
-        const id = Date.now();
+            e.preventDefault();
+            
+            /* Crea un objeto a partir de los inputs.value */
+            const nombre = document.querySelector('#bebida').value;
+            const categoria = document.querySelector('#categoria').value;
+            const precio = Number(document.querySelector('#precio').value);
+            const proveedor = document.querySelector('#proveedor').value;
+            const id = Date.now();
+            
+            const nuevaBebida = { nombre, categoria, precio, proveedor, id };
+            
+            console.log(bebidas);
+            
+            crearBebidaNueva(nuevaBebida);
+        } else {
+            e.preventDefault()
 
-        const nuevaBebida = { nombre, categoria, precio, proveedor, id };
+            /* const nombreAct = document.querySelector('#bebida').value;
+            const categoriaAct = document.querySelector('#categoria').value;
+            const precioAct = Number(document.querySelector('#precio').value);
+            const proveedorAct = document.querySelector('#proveedor').value;
+            const idAct = id;
 
-        console.log(bebidas);
+            bebidas.forEach( bebida => {
+                console.log(id);
+                console.log(idAct);
+                if(bebida.id == idAct) {
+                    console.log('Cambiaso')
 
-        crearBebidaNueva(nuevaBebida);
+                    bebida.nombre = nombreAct;
+                    bebida.categoria = categoriaAct;
+                    bebida.precio = precioAct;
+                    bebida.proveedor = proveedorAct;
+                }
+            })
+
+            console.log(bebidas);
+
+            limpiarHTML();
+            imprimirBebidas();
+            ocultarModal(); */
+        }
     }
 
     /* Cancelar formulario */
@@ -61,8 +93,6 @@ function crearBebidaNueva(nuevaBebida) {
     bebidas.push(nuevaBebida);
 
     imprimirBebidas();
-
-    formulario.reset();
 
     ocultarModal();
 }
@@ -99,8 +129,8 @@ function imprimirBebidas() {
 
         bebidaHTML.setAttribute('data-id', id);
         bebidaHTML.innerHTML = `
-                                <td class="table-data">${nombre}</td>
-                                <td class="table-data">${categoria}</td>
+                                <td class="table-data nombre">${nombre}</td>
+                                <td class="table-data categoria">${categoria}</td>
                                 <td class="table-data precio">$ ${precio}</td>
                                 <td class="table-data proovedor">${proveedor}</td>
                                 <td class="table-data acciones">
@@ -132,15 +162,6 @@ function imprimirBebidas() {
         } else {
             clara = false
         };
-
-        const editBtn = document.querySelector('.edit');
-        const deleteBtn = document.querySelector('.delete');
-
-        const bebidaEdit = { nombre, categoria, precio, proveedor, id };
-
-        editBtn.onclick = () => {
-            editarBebida(bebidaEdit);
-        }
     });
 
     checkearTabla();
@@ -154,18 +175,48 @@ function checkearTabla() {
     }
 }
 
-function editarBebida(bebidaEdit) {
-    const {nombre, categoria, precio, proveedor, id} = bebidaEdit;
-
-    /* Muestra el modal */
-    modal.style.display = 'flex';
-    modalTitulo.textContent = 'Editar bebida';
-
-    /* Lleno los inputs con los datos de la bebida a editar */
-    document.querySelector('#bebida').value = nombre;
-    document.querySelector('#categoria').value = categoria;
-    document.querySelector('#precio').value = precio;
-    document.querySelector('#proveedor').value = proveedor;
+function editarBebida(e) {
+    if(e.target.classList.contains('edit')) {
+        editando = true;
+        
+        /* Muestra el modal */
+        modal.style.display = 'flex';
+        modalTitulo.textContent = 'Editar bebida';
+        
+        nombre = e.target.parentElement.parentElement.children[0].textContent;
+        categoria = e.target.parentElement.parentElement.children[1].textContent;
+        precio = Number(e.target.parentElement.parentElement.children[2].textContent.substr(1,));
+        proveedor = e.target.parentElement.parentElement.children[3].textContent;
+        id = e.target.parentElement.parentElement.getAttribute('data-id');
     
+        /* Lleno los inputs con los datos de la bebida a editar */
+        document.querySelector('#bebida').value = nombre;
+        document.querySelector('#categoria').value = categoria;
+        document.querySelector('#precio').value = precio;
+        document.querySelector('#proveedor').value = proveedor;
 
+        /* Si estamos en el modo edicion, obtengo los datos de los inputs actualizados */
+            const nombreAct = document.querySelector('#bebida').value;
+            const categoriaAct = document.querySelector('#categoria').value;
+            const precioAct = Number(document.querySelector('#precio').value);
+            const proveedorAct = document.querySelector('#proveedor').value;
+            const idAct = id;
+
+            bebidas.forEach( bebida => {
+                if(bebida.id === idAct) {
+                    bebida.nombre = nombreAct;
+                    bebida.categoria = categoriaAct;
+                    bebida.precio = precioAct;
+                    bebida.proveedor = proveedorAct;
+                }
+            })
+
+        /* imprimirBebidas();
+    
+        formulario.reset();
+    
+        ocultarModal(); */
+       
+        editando = false;
+    }
 }

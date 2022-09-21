@@ -1,5 +1,5 @@
-/* CONTENIDO BEBIDAS */
-#contenido-bebidas {
+/* CONTENIDO PROVEEDORES */
+#contenido-proveedores {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
     padding-top: 3%;
 }
 
-#contenido-bebidas h1{
+#contenido-proveedores h1{
     font-family: 'pixel2','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     color: #dddddd;

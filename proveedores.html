@@ -11,7 +11,7 @@
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/universal.css">
-    <link rel="stylesheet" href="/styles/bebidas.css">
+    <link rel="stylesheet" href="/styles/proveedores.css">
 
     <title>Ronnie Bar - Sistema de Administración y Gestión</title>
 </head>
@@ -23,8 +23,8 @@
             <span></span>
             <div id="menu">
                 <a class="menu-link" href="inicio.html">Inicio</a>
-                <a class="link-activo" href="bebidas.html">Bebidas</a>
-                <a class="menu-link" href="proveedores.html">Proveedores</a>
+                <a class="menu-link" href="bebidas.html">Bebidas</a>
+                <a class="link-activo" href="proveedores.html">Proveedores</a>
                 <a class="menu-link" href="#">Stock</a>
                 <a class="menu-link" href="#">Ventas</a>
             </div>
@@ -32,8 +32,8 @@
             <button id="lista-precios">Generar lista de precios</button>
         </aside>
 
-        <section id="contenido-bebidas">
-            <h1>Bebidas</h1>
+        <section id="contenido-proveedores">
+            <h1>Proveedores</h1>
 
             <!-- Table container -->
             <div id="table-container">
@@ -49,38 +49,38 @@
                                 d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
                                 clip-rule="evenodd" />
                         </svg>
-                        <input type="search" name="search" id="search-input" placeholder="Buscar bebidas"
+                        <input type="search" name="search" id="search-input" placeholder="Buscar proveedor"
                             autocomplete="off">
                     </div>
 
-                    <!-- Add bebidas btn -->
+                    <!-- Add proveedor btn -->
                     <button id="btn-agregar-item" type="button" data-toggle="modal" data-target="#modal-agregar-item">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path fill-rule="evenodd"
                                 d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
                                 clip-rule="evenodd" />
                         </svg>
-                        Agregar bebida
+                        Agregar proveedor
                     </button>
                 </div>
 
                 <table id="table" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="table-head">Bebida</th>
-                            <th class="table-head">Categoria</th>
-                            <th class="table-head">Precio</th>
-                            <th class="table-head">Proveedor</th>
+                            <th class="table-head">Nombre</th>
+                            <th class="table-head">Telefono</th>
+                            <th class="table-head">Localidad</th>
+                            <th class="table-head">Direccion</th>
                             <th style="text-align: center;">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        <!-- ACA SE VAN A ESTAR AGREGANDO LAS BEBIDAS NUEVAS -->
+                        <!-- ACA SE VAN A ESTAR AGREGANDO LOS PROVEEDORES NUEVAS -->
                     </tbody>
                 </table>
                 
                 <p id="tabla-vacia">
-                    La tabla esta vacía, agregue nuevas bebidas
+                    La tabla esta vacía, agregue nuevos proveedores
                 </p>
             </div>
 
@@ -92,30 +92,30 @@
     <div id="modal-fondo">
         <div id="modal-agregar-item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <img id="astronauta-libro" src="/img/astronauta-libro.png" alt="">
-            <h5>Agregar bebida</h5>
+            <h5>Agregar proveedor</h5>
             <form id="form-agregar-item" action="">
                 <div class="div-input">
-                    <label for="bebida">Nombre:</label>
-                    <input id="bebida" type="text" placeholder="Nombre de la bebida" autocomplete="off">
+                    <label for="proveedor">Nombre:</label>
+                    <input id="proveedor" type="text" placeholder="Nombre del proveedor" autocomplete="off">
                 </div>
 
                 <div class="div-input">
-                    <label for="categoria">Categoria:</label>
-                    <input id="categoria" type="text" placeholder="Nombre de la categoria">
+                    <label for="telefono">Telefono:</label>
+                    <input id="telefono" type="tel" placeholder="Telefono del proveedor">
                 </div>
 
                 <div class="div-input">
-                    <label for="precio">Precio: $</label>
-                    <input id="precio" type="number" autocomplete="off">
+                    <label for="localidad">Localidad:</label>
+                    <input id="localidad" type="text" placeholder="Localidad del proovedor">
                 </div>
 
                 <div class="div-input">
-                    <label for="proveedor">Proveedor:</label>
-                    <input id="proveedor" type="text" placeholder="Nombre del proveedor">
+                    <label for="direccion">Direccion:</label>
+                    <input id="direccion" type="text" placeholder="Direccion del proovedor">
                 </div>
 
                 <div class="div-acciones">
-                    <input id="submit" type="submit" value="Agregar">
+                    <input class="submit" type="submit" value="Agregar">
                     <button type="button" id="cancel">Cancelar</button>
                 </div>
             </form>
@@ -125,7 +125,7 @@
     <footer>Derechos reservados 2022 &copy; Stark Two</footer>
 
     <!-- SCRIPTS -->
-    <script src="/js/bebidas.js"></script>
+    <script src="/js/proveedores.js"></script>
 </body>
 
 </html>
